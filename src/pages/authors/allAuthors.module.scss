@@ -1,0 +1,19 @@
+body{
+    max-width: 1440px
+}
+.authorsStyle{
+    margin-top: 125px;
+    max-width: 1440px;
+    font-size: 30px;
+    display: grid;
+   grid-template-columns: 1fr 1fr 1fr 1fr;
+   gap: 20px;
+   
+    
+}
+.containerAuthors{
+   max-width: 300px;
+   padding-top: 15px;
+   border: 2px solid #9a7a4f;
+   text-align: center;
+}
