@@ -1,21 +1,16 @@
-import React, { useState, useEffect } from "react";
-
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
 export const Reading = () => {
-  const [booksReading, setBooksReading] = useState([]);
+  const [booksReading, setBooksReading] = useState({});
+
+  const { id } = useParams();
+
   useEffect(() => {
-    fetch("https://gutendex.com/books/")
+    fetch(`https://gutendex.com/books/${id}`)
       .then((res) => res.json())
-      .then((data) => setBooksReading(data.results));
-  }, []);
-  return (
-    <div>
-      {booksReading.map((item) => (
-        <div key={item.id}>
-          {item.formats.map((formats) => (
-            <div>{formats}</div>
-          ))}
-        </div>
-      ))}
-      </div>
-)};
+      .then((data) => setBooksReading(data));
+  }, [id]);
+
+  return <div style={{ marginTop: '100px' }}>{booksReading.title}</div>;
+};
