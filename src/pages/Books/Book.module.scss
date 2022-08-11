@@ -1,0 +1,56 @@
+body{
+    max-width: 1440px;
+    margin: 0;
+    padding: 0;
+    
+}
+.bookStyle{
+    max-width: 1440px;
+    font-size: 30px;
+    display: grid;
+   grid-template-columns: 1fr 1fr 1fr 1fr;
+   gap: 20px;
+   
+    
+}
+.containerBook{
+   max-width: 300px;
+   padding-top: 15px;
+   border: 2px solid #9a7a4f;
+   text-align: center;
+   position: relative;
+   overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    &:hover{
+     width: 200px;
+    overflow: visible ;
+    white-space: pre-wrap;
+    transition-delay: 3s;
+    }
+}
+img{
+    max-width: 90px;
+    max-height: 130px;
+}
+.buttonRead{
+    border: 0;
+    width: 100px;
+    height: 30px;
+    background-color: #9f5a00;
+    color: white;
+    position: absolute;
+    bottom: 0;
+right: 1px;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+
+.searchInput{
+    margin: 100px;
+    max-width: 1440px;
+    
+}

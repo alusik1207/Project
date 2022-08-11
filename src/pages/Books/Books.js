@@ -1,29 +1,40 @@
 import React, { useState, useEffect } from "react";
-
 import Search from "../../Search/Search";
-import { Route, Link } from "react-router-dom";
-import { Reading } from "./reading";
+import styles from "./Book.module.scss";
 
 export const Books = () => {
   const [books, setBooks] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+
   useEffect(() => {
-    fetch("https://gutendex.com/books/")
+    fetch(`https://gutendex.com/books/?page=${currentPage}`)
       .then((res) => res.json())
       .then((data) => setBooks(data.results));
-  }, []);
+  }, [currentPage]);
+
+  console.log(currentPage);
+
   return (
     <div>
-      {books.map((item) => (
-        <div key={item.id}>
-          {item.subjects.map((subjects) => (
+      <div className={styles.searchInput}>
+        <Search />
+      </div>
+      <div className={styles.bookStyle}>
+        {books.map((item) => (
+          <div key={item.id} className={styles.containerBook}>
+            {item.title}
             <div>
-              <Link to="/reading">{subjects.replace(" -- Fiction", "")}</Link>
+              <img src={item.formats["image/jpeg"]} alt="book cover" />
             </div>
-          ))}
-          <Route path="/reading/:id" element={Reading} />
-        </div>
-      ))}
-      <Search />
+
+            <button className={styles.buttonRead}>
+              <a href={item.formats["text/html"]}>Read now</a>
+            </button>
+          </div>
+        ))}
+      </div>
+      <button onClick={() => setCurrentPage(currentPage + 1)}>Next</button>
+      <button onClick={() => setCurrentPage(currentPage - 1)}>Previos</button>
     </div>
   );
 };
