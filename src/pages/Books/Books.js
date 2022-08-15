@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Search from "../../Search/Search";
 import styles from "./Book.module.scss";
 
@@ -17,6 +18,7 @@ export const Books = () => {
   return (
     <div>
       <div className={styles.searchInput}>
+        
         <Search />
       </div>
       <div className={styles.bookStyle}>

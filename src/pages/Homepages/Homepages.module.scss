@@ -1,0 +1,25 @@
+h1{
+    font-size: 42px;
+    margin-top: 75px;
+    letter-spacing: 2.5px;
+    text-align: center;
+}
+p{
+font-size: 36px;
+letter-spacing: 1px;
+text-align: center;
+}
+.reviewBlock{
+    resize: both;
+	display: inline-block;
+	overflow: auto;
+	min-width: 150px;
+	min-height: 150px;
+}
+.review{
+    width: 750px;
+    height: 150px;
+    resize: both;
+    overflow: auto;
+
+}

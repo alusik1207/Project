@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styles from './Search.module.scss'
+import {Link} from 'react-router-dom'
 
 const Users = () => {
   const URL = 'https://gutendex.com/books/';
@@ -31,7 +32,7 @@ const Users = () => {
       <div>
         {input &&
           renderUser.map((user) => {
-            return <div key={user.id}>{user.title}</div>;
+            return <div key={user.id}><Link to={`/aboutPage/${user.id}`}>{user.title}</Link></div>;
           })}
       </div>
     </div>
