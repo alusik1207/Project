@@ -24,7 +24,7 @@ export const Books = () => {
       <div className={styles.bookStyle}>
         {books.map((item) => (
           <div key={item.id} className={styles.containerBook}>
-            {item.title}
+            <h2>{item.title}</h2>
             <div>
               <img src={item.formats["image/jpeg"]} alt="book cover" />
             </div>

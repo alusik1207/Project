@@ -8,31 +8,34 @@ function Homepages() {
   const [items,setItems]=useState(
     JSON.parse(localStorage.getItem('items')) || []
   )
-  useEffect(()=>{
-localStorage.setItem('items', JSON.stringify('items'))
-  },[items])
-  const newItem =()=>{
-    if(item.trim!==''){
-const newItem={
-  id:uuidv4(),
-  item:item,
-  color:randomcolor({
-    count: 10,
-   hue: 'brown'
-  }),
-  defaultPos:{
-    x: -100,
-    y: -100,
-  },
-}
+  useEffect( ()=>{
+    localStorage.setItem('items', JSON.stringify(items))
+  },[items]);
 
-setItems((items) => [...items, newItem]),
+  const newItem = () => {
+    if (item.trim!=='') {
+      // const newItem = {
+      //   id:uuidv4(),
+      //   item:item,
+      //   color:randomcolor({
+      //     count: 10,
+      //     hue: 'brown'
+      //   }),
+      //   defaultPos: {
+      //     x: -100,
+      //     y: -100,
+      //   }
+      // };
 
-}else{
+      // setItems( (items) => [...items, newItem]),
+
+    } else {
       alert('Write something...')
       setItem('')
     }
   }
+
+
   return (
     <div ><h1>Imagination</h1>
     <p>Discussion</p>
