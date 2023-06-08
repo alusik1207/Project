@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import styles from "./allAuthors.module.scss";
-import { AutorsComponent } from "./Authors";
-import Search from "../../Search/Search";
 
 export const AllAuvthors = () => {
   const [books, setBooks] = useState([]);

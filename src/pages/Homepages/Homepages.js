@@ -1,16 +1,14 @@
 import React,{useEffect,useState} from 'react'
 import styles from './Homepages.module.scss'
-import { v4 as uuidv4 } from 'uuid';
-import {randomcolor} from 'randomcolor'
 
 function Homepages() {
-  const [item, setItem]=useState('')
-  const [items,setItems]=useState(
-    JSON.parse(localStorage.getItem('items')) || []
-  )
+  const [item, setItem]=useState('');
+  const [items,setItems]=useState( JSON.parse(localStorage.getItem('items')) || [] );
   useEffect( ()=>{
     localStorage.setItem('items', JSON.stringify(items))
   },[items]);
+
+  setItems();
 
   const newItem = () => {
     if (item.trim!=='') {
@@ -43,11 +41,13 @@ function Homepages() {
     <input type='texterea' placeholder='Write a review' className={styles.review} onChange={(e)=>setItem(e.target.value)}/> 
     </div>
       <button onClick={newItem}>Add a comment</button>
-      <div>{
-        items.map((item, index)=>{
-          <div key={index}>{`${item.item}`}</div>
-        })
-        }</div>
+      <div>
+        {
+          items.map( (item, index) => {
+            return <div key={index}>{`${item.item}`}</div>
+          })
+        }
+      </div>
     </div>
     
   )
